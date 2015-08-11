@@ -7,6 +7,10 @@ This is a project example similar to [movies-ruby-neo4j-core](https://github.com
 Because I wanted to update to the latest ruby library and I wanted to have tests in the example project.
 
 
+# Setup
+
+You need to set up the environment variable `NEO4J_URL`
+
 
 # If you have issues installing liibv8
 

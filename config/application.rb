@@ -1,10 +1,20 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'neo4j/railtie'
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+class Neo4jConfig < OpenStruct
+  def to_hash
+    self.to_h
+  end
+end
 
 module MoviesWithNeo4j
   class Application < Rails::Application
@@ -20,12 +30,18 @@ module MoviesWithNeo4j
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
     config.generators do |g|
       g.test_framework  :rspec
       g.integration_tool :rspec
     end
+  
+    config.neo4j = Neo4jConfig.new(session_path: ENV['NEO4J_URL'])
+    config.generators { |g| g.orm :neo4j }     
+  end
+end
+
+class Neo4jConfig < OpenStruct
+  def to_hash
+    self.to_h
   end
 end
