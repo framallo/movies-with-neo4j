@@ -16,6 +16,8 @@ class Neo4jConfig < OpenStruct
   end
 end
 
+ENV['NEO4J_URL'] || raise('no NEO4J_URL provided')
+
 module MoviesWithNeo4j
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
