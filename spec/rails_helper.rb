@@ -8,6 +8,7 @@ require 'shoulda/matchers'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'simplecov'
+require "fantaskspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -28,6 +29,9 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   config.infer_spec_type_from_file_location!
+  config.infer_rake_task_specs_from_file_location!
 
 end
+
+Rails.application.load_tasks
 

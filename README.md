@@ -13,6 +13,21 @@ You need to set up the environment variable `NEO4J_URL`
 
     export NEO4J_URL=http://user:password@localhost:7474/
 
+and install the test database
+
+    rake neo4j:install[community-2.2.4,test]
+
+Also, you need to populate the database
+
+    rake db:seed
+
+# Test
+
+In order to run the test suite you need to run a [test instance of neo4j](https://github.com/neo4jrb/neo4j/wiki/How-To-Test)
+
+    rake neo4j:start[test]
+    guard
+
 # Issues
 
 ## installing liibv8

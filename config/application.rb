@@ -10,7 +10,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-ENV['NEO4J_URL'] || raise('no NEO4J_URL provided')
+#ENV['NEO4J_URL'] || raise('no NEO4J_URL provided')
 
 module MoviesWithNeo4j
   class Application < Rails::Application
@@ -34,11 +34,5 @@ module MoviesWithNeo4j
     config.neo4j.session_type = :server_db
     config.neo4j.session_path = ENV['NEO4J_URL'] || 'http://localhost:7475'
     config.generators { |g| g.orm :neo4j }     
-  end
-end
-
-class Neo4jConfig < OpenStruct
-  def to_hash
-    self.to_h
   end
 end
