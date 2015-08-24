@@ -24,5 +24,13 @@ describe SearchController, type: :controller do
 
       expect(assigns(:people_in_movies)).to eq people_in_movies
     end
+
+    context 'when there is no search string' do
+      it "shows empty results" do
+        get :index, q: ''
+
+        expect(assigns(:movies)).to eq []
+      end
+    end
   end
 end
