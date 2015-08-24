@@ -1,13 +1,14 @@
 %h1 Movies
 
-%ul
+.list-group
   - @movies.each do |movie|
-    %li
-      = link_to movie_path(movie.title) do
-        = movie.title
-        -# slower method to count the people involved in each movie
-        -#= "(#{movie.people.count})"
-        = "(#{@people_in_movies[movie.uuid]})"
+    = link_to movie_path(movie.title), class: 'list-group-item' do
+      = movie.title
+      -# slower method to count the people involved in each movie
+      -#= "(#{movie.people.count})"
+      %span.badge
+        = @people_in_movies[movie.uuid]
+
       
   
 
