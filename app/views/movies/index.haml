@@ -1,0 +1,13 @@
+%h1 Movies
+
+%ul
+  - @movies.each do |movie|
+    %li
+      = link_to movie_path(movie.title) do
+        = movie.title
+        -# slower method to count the people involved in each movie
+        -#= "(#{movie.people.count})"
+        = "(#{@people_in_movies[movie.uuid]})"
+      
+  
+

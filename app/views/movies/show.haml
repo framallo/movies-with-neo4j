@@ -1,0 +1,17 @@
+%h1
+  = @movie.title
+
+%p
+  Released:
+  = @movie.released
+
+%p
+  = @movie.tagline
+
+%ul
+  - @movie.people.each_with_rel do |person, rel|
+    %li
+      = person.name 
+      = humanize_relation(rel.rel_type)
+      as
+      = rel.props[:roles].to_sentence(:last_word_connector => ' and ')
