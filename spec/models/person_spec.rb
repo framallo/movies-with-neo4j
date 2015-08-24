@@ -32,5 +32,40 @@ describe Person do
     end
   end
 
+  it 'is faster than using person.movies.count' do
+
+    movie_people_count = Benchmark.realtime do
+      Person.all.each {|m| m.movies.count }
+    end
+
+    movies_by_people  = Benchmark.realtime do
+      m = Person.as(:p).movies(:m).pluck('p.uuid', 'count(p)').to_h
+      Person.all.each {|p| m[p.uuid] }
+    end
+
+    expect(movies_by_people).to be < movie_people_count
+
+  end
+
+
+  it 'is faster using neo4j-core than neo4j' do
+
+    neo4j = Benchmark.realtime do
+      Person.as(:p).movies(:m).pluck('p.uuid', 'count(p)').to_h
+    end
+
+    neo4j_core   = Benchmark.realtime do
+      q = Neo4j::Session.query( %{
+        MATCH (p:Person)-[r]->(m:Movie) 
+        return p.uuid, count(p)
+      }).map(&:to_a).to_h
+
+    end
+
+    expect(neo4j_core).to be < neo4j
+
+  end
+
+
 end
 

@@ -31,7 +31,7 @@ describe Movie do
 
     it 'counts the people in the matrix' do
       count = Movie.people_in_movies[movie_matrix.uuid]
-      expect(count).to eq(5)
+      expect(count).to eq(8)
     end
 
     it 'is faster than using movie.people.count' do
@@ -49,6 +49,23 @@ describe Movie do
 
     end
 
+    it 'is faster using neo4j-core than neo4j' do
+
+      neo4j = Benchmark.realtime do
+        Movie.as(:m).people(:p).pluck('m.uuid', 'count(p)').to_h
+      end
+
+      neo4j_core   = Benchmark.realtime do
+        q = Neo4j::Session.query( %{
+          MATCH (p:Person)-[r]->(m:Movie) 
+          return m.uuid, count(m)
+        }).map(&:to_a).to_h
+
+      end
+
+      expect(neo4j_core).to be < neo4j
+
+    end
   end
 end
 

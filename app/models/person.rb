@@ -6,7 +6,10 @@ class Person
   has_many :out, :movies, type: 'ACTED_IN', model_class: Movie
 
   def self.movies_by_people
-    Person.as(:p).movies(:m).pluck('p.uuid', 'count(p)').to_h
+    q = Neo4j::Session.query( %{
+        MATCH (p:Person)-[r]->(m:Movie) 
+        return p.uuid, count(p)
+    }).map(&:to_a).to_h
   end
 
 end
