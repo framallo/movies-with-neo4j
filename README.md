@@ -21,6 +21,10 @@ Also, you need to populate the database
 
     rake db:seed
 
+You can run the development database
+
+    neo4j start
+
 # Test
 
 In order to run the test suite you need to run a [test instance of neo4j](https://github.com/neo4jrb/neo4j/wiki/How-To-Test)
