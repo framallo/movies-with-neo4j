@@ -40,6 +40,8 @@ run this command. You can read more [here](https://github.com/cowboyd/libv8/issu
 
     gem install libv8 -v '3.16.14.11' -- --with-system-v8
 
+## Neo4j configuration error
+
 If your username or password is incorrect you might get this error
 
     resource.rb:37:in `handle_response_error!': Expected response code 200 Error for request
