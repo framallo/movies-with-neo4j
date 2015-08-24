@@ -29,6 +29,7 @@ module MoviesWithNeo4j
     config.generators do |g|
       g.test_framework  :rspec
       g.integration_tool :rspec
+      g.template_engine :haml
     end
   
     config.neo4j.session_type = :server_db
