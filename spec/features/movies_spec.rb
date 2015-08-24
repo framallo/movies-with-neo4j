@@ -7,8 +7,6 @@ feature 'Movies' do
     the_matrix = find(:xpath, "//div[@class='list-group']/a[@href='/movies/The%20Matrix']")
     expect(the_matrix.text).to eq "The Matrix 5"
 
-    #binding.pry
-
     click_link "The Matrix 5"
     expect(page).to have_content('Welcome to the Real World')
   end

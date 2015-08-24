@@ -4,7 +4,7 @@ describe Person do
 
   context 'properties' do
     let(:keanu) { Person.new(name:'Keanu Reeves', born:1964) }
-    
+
     it 'allows to create a new movie' do
       expect { keanu }.not_to raise_error
     end
