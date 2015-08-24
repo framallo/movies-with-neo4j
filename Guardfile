@@ -15,7 +15,7 @@ group :backend do
     watch('Gemfile')
   end
 
-  guard :rspec, :cmd => 'bundle exec spring rspec --drb', :failed_mode => :none do
+  guard :rspec, :cmd => 'bundle exec spring rspec --drb --tag ~@seed', :failed_mode => :none do
     watch('spec/spec_helper.rb')                                               { "spec" }
     watch('app/controllers/application_controller.rb')                         { "spec/controllers" }
     watch('config/routes.rb')                                                  { "spec/routing" }

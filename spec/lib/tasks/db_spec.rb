@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'db:seed', type: :rake do
+describe 'db:seed', type: :rake, seed: true do
   it { is_expected.to depend_on(:environment) }
 
   it 'populates the database' do

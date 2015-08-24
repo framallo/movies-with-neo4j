@@ -32,6 +32,12 @@ In order to run the test suite you need to run a [test instance of neo4j](https:
     rake neo4j:start[test]
     guard
 
+I am skipping the seed tests with Guard, but you can test the seed task manually with
+
+    rspec spec/lib/tasks/db_spec.rb
+
+    
+
 # Issues
 
 ## installing liibv8
