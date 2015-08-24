@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
   resources :movies, only: [:show, :index]
+  resources :people, only: [:show, :index]
 
   root 'movies#index'
 

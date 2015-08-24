@@ -1,0 +1,11 @@
+%h1
+  = @person.name
+
+%ul
+  - @person.movies.each_with_rel do |movie, rel|
+    %li
+      = movie.title 
+      = humanize_relation(rel.rel_type)
+      as
+      = rel.props[:roles].to_sentence(:last_word_connector => ' and ')
+
