@@ -1,4 +1,7 @@
 require 'rubygems'
+require 'simplecov'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -13,8 +16,10 @@ require "fantaskspec"
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 SimpleCov.start 'rails' do
-  simplecov_formatters = [ SimpleCov::Formatter::HTMLFormatter ]
-  SimpleCov.formatters = simplecov_formatters
+  formatter SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
 end
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
