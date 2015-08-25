@@ -53,6 +53,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'simplecov', require: false
   gem "fantaskspec"
+  gem "codeclimate-test-reporter"
 end
 
 
