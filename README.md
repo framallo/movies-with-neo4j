@@ -1,3 +1,8 @@
+[![Code Climate](https://codeclimate.com/github/framallo/movies-with-neo4j/badges/gpa.svg)](https://codeclimate.com/github/framallo/movies-with-neo4j)
+
+[![Test Coverage](https://codeclimate.com/github/framallo/movies-with-neo4j/badges/coverage.svg)](https://codeclimate.com/github/framallo/movies-with-neo4j/coverage)
+
+
 # Movies rails application using Neo4j
 
 This is a project example similar to [movies-ruby-neo4j-core](https://github.com/neo4j-examples/movies-ruby-neo4j-core) but using rails and the latest version of neo4j
@@ -36,7 +41,7 @@ I am skipping the seed tests with Guard, but you can test the seed task manually
 
     rspec spec/lib/tasks/db_spec.rb
 
-    
+
 
 # Issues
 
@@ -51,4 +56,3 @@ run this command. You can read more [here](https://github.com/cowboyd/libv8/issu
 If your username or password is incorrect you might get this error
 
     resource.rb:37:in `handle_response_error!': Expected response code 200 Error for request
-
