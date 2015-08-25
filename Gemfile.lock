@@ -54,6 +54,8 @@ GEM
     capybara-webkit (1.6.0)
       capybara (>= 2.3.0, < 2.5.0)
       json
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -309,6 +311,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-webkit
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   faker
   fantaskspec
