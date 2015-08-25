@@ -19,3 +19,4 @@
 config/database.yml
 coverage
 db/neo4j
+tags
