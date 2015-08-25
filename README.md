@@ -14,34 +14,34 @@ Because I wanted to update to the latest ruby library and I wanted to have tests
 
 # Setup
 
-You need to set up the environment variable `NEO4J_URL`
+You need to start neo4j and set up the environment variable `NEO4J_URL`
 
-    export NEO4J_URL=http://user:password@localhost:7474/
+```
+neo4j start
+export NEO4J_URL=http://user:password@localhost:7474/
+```
 
-and install the test database
+Also, you need to install and setup the test database
 
-    rake neo4j:install[community-2.2.4,test]
-
-Also, you need to populate the database
-
-    rake db:seed
-
-You can run the development database
-
-    neo4j start
+```
+rake neo4j:install[community-2.2.4,test]
+rake neo4j:config[test,7475]
+```
 
 # Test
 
 In order to run the test suite you need to run a [test instance of neo4j](https://github.com/neo4jrb/neo4j/wiki/How-To-Test)
 
-    rake neo4j:start[test]
-    guard
+```
+rake neo4j:start[test]
+guard
+```
 
 I am skipping the seed tests with Guard, but you can test the seed task manually with
 
-    rspec spec/lib/tasks/db_spec.rb
-
-
+```
+rspec spec/lib/tasks/db_spec.rb
+```
 
 # Issues
 
@@ -49,10 +49,14 @@ I am skipping the seed tests with Guard, but you can test the seed task manually
 
 run this command. You can read more [here](https://github.com/cowboyd/libv8/issues/169)
 
-    gem install libv8 -v '3.16.14.11' -- --with-system-v8
+```
+gem install libv8 -v '3.16.14.11' -- --with-system-v8
+```
 
 ## Neo4j configuration error
 
 If your username or password is incorrect you might get this error
 
-    resource.rb:37:in `handle_response_error!': Expected response code 200 Error for request
+```
+resource.rb:37:in `handle_response_error!': Expected response code 200 Error for request
+```
