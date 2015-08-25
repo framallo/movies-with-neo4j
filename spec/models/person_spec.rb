@@ -48,7 +48,7 @@ describe Person do
   end
 
 
-  it 'is faster using neo4j-core than neo4j' do
+  it 'is faster using neo4j-core than neo4j', performance: true do
 
     neo4j = Benchmark.realtime do
       Person.as(:p).movies(:m).pluck('p.uuid', 'count(p)').to_h

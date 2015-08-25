@@ -49,7 +49,7 @@ describe Movie do
 
     end
 
-    it 'is faster using neo4j-core than neo4j' do
+    it 'is faster using neo4j-core than neo4j', performance: true do
 
       neo4j = Benchmark.realtime do
         Movie.as(:m).people(:p).pluck('m.uuid', 'count(p)').to_h
