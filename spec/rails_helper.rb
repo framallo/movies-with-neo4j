@@ -21,7 +21,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
-  
+
   config.include(Capybara::DSL, :type => :feature)
   Capybara.javascript_driver = :webkit
 
@@ -34,4 +34,3 @@ RSpec.configure do |config|
 end
 
 Rails.application.load_tasks
-

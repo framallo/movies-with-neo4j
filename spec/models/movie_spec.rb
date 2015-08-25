@@ -41,7 +41,7 @@ describe Movie do
       end
 
       people_in_movies   = Benchmark.realtime do
-        p = Movie.people_in_movies 
+        p = Movie.people_in_movies
         Movie.all.each {|m| p[m.uuid] }
       end
 
@@ -57,7 +57,7 @@ describe Movie do
 
       neo4j_core   = Benchmark.realtime do
         q = Neo4j::Session.query( %{
-          MATCH (p:Person)-[r]->(m:Movie) 
+          MATCH (p:Person)-[r]->(m:Movie)
           return m.uuid, count(m)
         }).map(&:to_a).to_h
 
@@ -68,4 +68,3 @@ describe Movie do
     end
   end
 end
-

@@ -7,7 +7,7 @@ class Person
 
   def self.movies_by_people
     q = Neo4j::Session.query( %{
-        MATCH (p:Person)-[r]->(m:Movie) 
+        MATCH (p:Person)-[r]->(m:Movie)
         return p.uuid, count(p)
     }).map(&:to_a).to_h
   end
