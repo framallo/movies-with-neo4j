@@ -10,9 +10,7 @@ class MoviesController < ApplicationController
              Movie.find(params[:id])
   end
 
-
   def fetch_movies
     @movies = Movie.all
   end
-
 end

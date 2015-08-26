@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe SearchController, type: :controller do
-
   describe 'GET #index' do
     let(:top_gear) { Movie.find_by(title: 'Top Gun') }
     let(:people_in_movies) { Movie.people_in_movies }

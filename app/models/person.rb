@@ -13,5 +13,4 @@ class Person
   def self.movies_by_people
     all(:p).movies(:m).pluck('p.uuid', 'count(m)').to_h
   end
-
 end

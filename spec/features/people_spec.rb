@@ -11,4 +11,3 @@ feature 'Movies' do
     expect(page).to have_content('Keanu Reeves')
   end
 end
-

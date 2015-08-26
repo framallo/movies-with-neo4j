@@ -23,5 +23,4 @@ RSpec.describe PeopleController, type: :controller do
 
     expect(assigns(:people)).to eq people
   end
-
 end

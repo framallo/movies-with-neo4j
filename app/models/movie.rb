@@ -10,7 +10,7 @@ class Movie
   has_many :in, :producers, type: :PRODUCED, model_class: :Person
   has_many :in, :writers, type: :WROTE, model_class: :Person
 
-  scope :search, -> (query) { where(title: Regexp.new("(?i).*#{query}.*") ) }
+  scope :search, -> (query) { where(title: Regexp.new("(?i).*#{query}.*")) }
 
   def self.people_in_movies
     all(:m).people(:p).pluck('m.uuid', 'count(p)').to_h

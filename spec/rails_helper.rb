@@ -37,7 +37,6 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
   config.infer_rake_task_specs_from_file_location!
-
 end
 
 Rails.application.load_tasks

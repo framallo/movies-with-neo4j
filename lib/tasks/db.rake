@@ -5,5 +5,4 @@ namespace :db do
     Neo4j::Session.query seed
     Neo4j::Migration::AddIdProperty.new(Rails.root).migrate
   end
-
 end

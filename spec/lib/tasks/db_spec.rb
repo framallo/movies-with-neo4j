@@ -9,13 +9,11 @@ describe 'db:seed', type: :rake, seed: true do
 
     subject.execute
     expect(Person.count - person_count).to eq(131)
-    expect(Movie.count - movie_count ).to eq(38)
-
+    expect(Movie.count - movie_count).to eq(38)
   end
 
   it 'populates uuid fields' do
-    expect(Movie.where(uuid: nil ).count).to eq 0
-    expect(Person.where(uuid: nil ).count).to eq 0
+    expect(Movie.where(uuid: nil).count).to eq 0
+    expect(Person.where(uuid: nil).count).to eq 0
   end
-
 end

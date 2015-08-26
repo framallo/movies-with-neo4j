@@ -41,6 +41,4 @@ describe MoviesController do
       expect(assigns(:movie)).to eq movie_matrix
     end
   end
-
-
 end
