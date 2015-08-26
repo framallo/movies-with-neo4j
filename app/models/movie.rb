@@ -8,11 +8,9 @@ class Movie
   scope :search, -> (query) { where(title: Regexp.new("(?i).*#{query}.*") ) }
 
   def self.people_in_movies
-    q = Neo4j::Session.query( %{
-        MATCH (p:Person)-[r]->(m:Movie) 
-        return m.uuid, count(m)
-    }).map(&:to_a).to_h
-    
+    query_as(:m).
+      match('(m)<--(p:Person)').
+      pluck('m.uuid', 'count(p)').to_h
   end
 
   
