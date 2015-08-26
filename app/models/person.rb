@@ -3,7 +3,7 @@ class Person
   property :name
   property :born
 
-  has_many :out, :movies, type: 'ACTED_IN', model_class: Movie
+  has_many :out, :movies, type: :ACTED_IN, model_class: :Movie
 
   def self.movies_by_people
     query_as(:p)
