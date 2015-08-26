@@ -4,5 +4,10 @@ rvm:
 script:
   - bundle exec rspec spec --tag ~@seed
   - bundle exec rubocop
-services:
-  - neo4j
+jdk:
+  - oraclejdk7
+before_install:
+  # install Neo4j locally:
+  - rake neo4j:install[community-2.2.4,test]
+  - rake neo4j:config[test,7474]
+  - rake neo4j:start[test]
