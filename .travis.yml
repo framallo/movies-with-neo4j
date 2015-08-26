@@ -8,6 +8,7 @@ jdk:
   - oraclejdk7
 before_install:
   # install Neo4j locally:
-  - bundle exec rake neo4j:install[community-2.2.4,test]
-  - bundle exec rake neo4j:config[test,7474]
-  - bundle exec rake neo4j:start[test]
+  - wget dist.neo4j.org/neo4j-community-2.2.0-unix.tar.gz
+  - tar -xzf neo4j-community-2.2.0-unix.tar.gz
+  - sed -i.bak s/dbms.security.auth_enabled=true/dbms.security.auth_enabled=false/g neo4j-community-2.2.0/conf/neo4j-server.properties
+  - neo4j-community-2.2.0/bin/neo4j start
