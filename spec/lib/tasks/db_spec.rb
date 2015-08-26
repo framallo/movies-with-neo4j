@@ -9,7 +9,7 @@ describe 'db:seed', type: :rake, seed: true do
 
     subject.execute
     expect(Person.count - person_count).to eq(131)
-    expect(Movie.count  - movie_count ).to eq(38)
+    expect(Movie.count - movie_count ).to eq(38)
 
   end
 

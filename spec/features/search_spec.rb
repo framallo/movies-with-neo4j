@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Movies' do
-  scenario "Browse movies" do
+  scenario 'Browse movies' do
     visit '/'
     fill_in 'Search', with: 'Top'
     click_button 'Submit'

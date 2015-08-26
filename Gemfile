@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -52,8 +52,8 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'simplecov', require: false
-  gem "fantaskspec"
-  gem "codeclimate-test-reporter"
+  gem 'fantaskspec'
+  gem 'codeclimate-test-reporter'
 end
 
 
@@ -63,6 +63,7 @@ group :development do
   gem 'guard-bundler', require: false
   gem 'guard-shell', require: false
   gem 'guard-livereload', require: false
-  gem "rack-livereload"
+  gem 'guard-rubocop', require: false
+  gem 'rack-livereload'
   gem 'guard-spring'
 end

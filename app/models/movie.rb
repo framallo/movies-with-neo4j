@@ -12,6 +12,4 @@ class Movie
       match('(m)<--(p:Person)').
       pluck('m.uuid', 'count(p)').to_h
   end
-
-  
 end

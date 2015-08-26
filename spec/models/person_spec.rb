@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Person do
 
   context 'properties' do
-    let(:keanu) { Person.new(name:'Keanu Reeves', born:1964) }
+    let(:keanu) { Person.new(name: 'Keanu Reeves', born: 1964) }
 
     it 'allows to create a new movie' do
       expect { keanu }.not_to raise_error
@@ -20,10 +20,10 @@ describe Person do
     let(:keanu) { Person.find_by name: 'Keanu Reeves' }
 
     it 'has movie id as key' do
-      expect(movies_by_people.all? {|uuid, count| uuid.length == 36 }).to be true
+      expect(movies_by_people.all? {|uuid, _| uuid.length == 36 }).to be true
     end
     it 'has the number of people as value' do
-      expect(movies_by_people.all? {|uuid, count| count.class == Fixnum }).to be true
+      expect(movies_by_people.all? {|_, count| count.class == Fixnum }).to be true
     end
 
     it 'counts the movies by Keanu Reeves' do

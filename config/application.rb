@@ -1,10 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'neo4j/railtie'
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'sprockets/railtie'
+require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -31,9 +31,9 @@ module MoviesWithNeo4j
       g.integration_tool :rspec
       g.template_engine :haml
     end
-  
+
     config.neo4j.session_type = :server_db
     config.neo4j.session_path = ENV['NEO4J_URL'] || 'http://localhost:7475'
-    config.generators { |g| g.orm :neo4j }     
+    config.generators { |g| g.orm :neo4j }
   end
 end

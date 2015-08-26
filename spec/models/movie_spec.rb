@@ -22,10 +22,10 @@ describe Movie do
 
     context 'returns a hash' do
       it 'has movie id as key' do
-        expect(people_in_movies.all? {|uuid, count| uuid.length == 36 }).to be true
+        expect(people_in_movies.all? {|uuid, _| uuid.length == 36 }).to be true
       end
       it 'has the number of people as value' do
-        expect(people_in_movies.all? {|uuid, count| count.class == Fixnum }).to be true
+        expect(people_in_movies.all? {|_, count| count.class == Fixnum }).to be true
       end
     end
 
