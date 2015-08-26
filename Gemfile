@@ -43,7 +43,6 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'fuubar'
 
   gem 'shoulda-matchers', require: false
@@ -62,6 +61,7 @@ group :development do
   gem 'guard-shell', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rubocop', require: false
+  gem 'rb-fsevent', require: false
   gem 'rack-livereload'
   gem 'guard-spring'
 end
