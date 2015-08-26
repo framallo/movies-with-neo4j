@@ -32,9 +32,9 @@ module MoviesWithNeo4j
       g.template_engine :haml
     end
 
-    config.neo4j.session_type = :server_db
     config.neo4j.session_type = Figaro.env.neo4j_type if Figaro.env.neo4j_type?
     config.neo4j.session_path = Figaro.env.neo4j_url if Figaro.env.neo4j_url?
+    config.neo4j.session_path = Figaro.graph_story_url if Figaro.env.graph_story_url?
     config.generators { |g| g.orm :neo4j }
   end
 end
