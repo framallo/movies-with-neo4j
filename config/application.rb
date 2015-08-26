@@ -10,7 +10,8 @@ require 'rails/test_unit/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# ENV['NEO4J_URL'] || raise('no NEO4J_URL provided')
+ENV['NEO4J_URL'] ||= ENV['GRAPHSTORY_URL']
+ENV['NEO4J_URL'] || fail('no NEO4J_URL provided')
 
 module MoviesWithNeo4j
   class Application < Rails::Application
@@ -32,9 +33,8 @@ module MoviesWithNeo4j
       g.template_engine :haml
     end
 
-    config.neo4j.session_type = Figaro.env.neo4j_type if Figaro.env.neo4j_type?
-    config.neo4j.session_path = Figaro.env.neo4j_url if Figaro.env.neo4j_url?
-    config.neo4j.session_path = Figaro.graph_story_url if Figaro.env.graph_story_url?
+    config.neo4j.session_type = ENV['NEO4J_TYPE'] if ENV['NEO4J_TYPE']
+    config.neo4j.session_path = ENV['NEO4J_URL'] if ENV['NEO4J_URL']
     config.generators { |g| g.orm :neo4j }
   end
 end

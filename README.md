@@ -18,7 +18,7 @@ You need to start neo4j and set up the environment variable `NEO4J_URL`
 
 ```
 neo4j start
-export NEO4J_URL=http://user:password@localhost:7474/
+echo NEO4J_URL=http://user:password@localhost:7474/ >> .env
 ```
 
 Also, you need to install and setup the test database
@@ -26,6 +26,7 @@ Also, you need to install and setup the test database
 ```
 rake neo4j:install[community-2.2.4,test]
 rake neo4j:config[test,7475]
+echo NEO4J_URL=http://localhost:7475/ >> .env.test
 ```
 
 # Test
