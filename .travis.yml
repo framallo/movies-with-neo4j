@@ -4,3 +4,5 @@ rvm:
 script:
   - bundle exec rspec spec --tag ~@seed
   - bundle exec rubocop
+services:
+  - neo4j
