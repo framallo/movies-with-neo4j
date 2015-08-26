@@ -1,0 +1,8 @@
+# Add configuration values here, as shown below.
+#
+
+development:
+  neo4j_url: 'http://localhost:7474'
+
+test:
+  neo4j_url: 'http://localhost:7475'

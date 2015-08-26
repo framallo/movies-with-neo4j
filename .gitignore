@@ -20,3 +20,6 @@ config/database.yml
 coverage
 db/neo4j
 tags
+
+# Ignore application configuration
+/config/application.yml

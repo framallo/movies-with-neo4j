@@ -33,7 +33,8 @@ module MoviesWithNeo4j
     end
 
     config.neo4j.session_type = :server_db
-    config.neo4j.session_path = ENV['NEO4J_URL'] || 'http://localhost:7475'
+    config.neo4j.session_type = Figaro.env.neo4j_type if Figaro.env.neo4j_type?
+    config.neo4j.session_path = Figaro.env.neo4j_url if Figaro.env.neo4j_url?
     config.generators { |g| g.orm :neo4j }
   end
 end
