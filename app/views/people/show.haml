@@ -4,8 +4,11 @@
 %ul
   - @person.movies.each_with_rel do |movie, rel|
     %li
-      = movie.title 
+      = link_to movie.title, movie
       = humanize_relation(rel.rel_type)
-      as
-      = rel.props[:roles].to_sentence(:last_word_connector => ' and ')
+
+      - roles = Array(rel.props[:roles]).to_sentence(:last_word_connector => ' and ')
+      - if roles.present?
+        as
+        = roles
 

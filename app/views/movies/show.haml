@@ -6,12 +6,15 @@
   = @movie.released
 
 %p
+  Tagline:
   = @movie.tagline
 
 %ul
   - @movie.people.each_with_rel do |person, rel|
     %li
-      = person.name 
+      = link_to person.name, person
       = humanize_relation(rel.rel_type)
-      as
-      = rel.props[:roles].to_sentence(:last_word_connector => ' and ')
+      - roles = Array(rel.props[:roles]).to_sentence(:last_word_connector => ' and ')
+      - if roles.present?
+        as
+        = roles
