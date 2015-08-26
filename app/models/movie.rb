@@ -13,8 +13,6 @@ class Movie
   scope :search, -> (query) { where(title: Regexp.new("(?i).*#{query}.*") ) }
 
   def self.people_in_movies
-    query_as(:m).
-      match('(m)<--(p:Person)').
-      pluck('m.uuid', 'count(p)').to_h
+    all(:m).people(:p).pluck('m.uuid', 'count(p)').to_h
   end
 end

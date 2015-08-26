@@ -11,9 +11,7 @@ class Person
   has_many :out, :movies_wrote, type: :WROTE, model_class: :Movie
 
   def self.movies_by_people
-    query_as(:p)
-      .match('(p)-->(m:Movie)')
-      .pluck('p.uuid', 'count(m)').to_h
+    all(:p).movies(:m).pluck('p.uuid', 'count(m)').to_h
   end
 
 end
