@@ -5,12 +5,13 @@ group :frontend do
     watch(%r{^public/.+\.(css|js|html)})
     watch(%r{^config/locales/.+\.yml})
     # Rails Assets Pipeline
-    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
+    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) do |m|
+      "/assets/#{m[3]}"
+    end
   end
 end
 
 group :backend do
-
   guard :bundler do
     watch('Gemfile')
   end
@@ -33,10 +34,10 @@ group :backend do
     watch(%r{^app/(.+)\.rb}) { |m| "spec/#{m[1]}_spec.rb" }
     watch(%r{^lib/(.+)\.rb}) { |m| "spec/lib/#{m[1]}_spec.rb" }
   end
-
 end
 
 guard :rubocop, cli: ['--format', 'clang', '--display-cop-names', '--auto-correct', '--rails'] do
   watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  watch(%r{(?:.+/)?\.rubocop_todo\.yml$}) { |m| File.dirname(m[0]) }
 end
