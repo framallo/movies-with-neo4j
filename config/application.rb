@@ -11,7 +11,6 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 ENV['NEO4J_URL'] ||= ENV['GRAPHSTORY_URL']
-ENV['NEO4J_URL'] || fail('no NEO4J_URL provided')
 
 module MoviesWithNeo4j
   class Application < Rails::Application
