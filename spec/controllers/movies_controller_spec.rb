@@ -27,17 +27,17 @@ describe MoviesController do
     let(:movie_matrix)        { Movie.find_by title: 'The Matrix' }
 
     it 'finds movie by title' do
-      get :show, id: movie_matrix.title
+      get :show, title: movie_matrix.title
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the :show template' do
-      get :show, id: movie_matrix.title
+      get :show, title: movie_matrix.title
       expect(response).to render_template :show
     end
 
     it 'assigns movie' do
-      get :show, id: movie_matrix.title
+      get :show, title: movie_matrix.title
       expect(assigns(:movie)).to eq movie_matrix
     end
   end
