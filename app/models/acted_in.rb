@@ -5,4 +5,8 @@ class ActedIn
   to_class :Movie
 
   property :roles
+
+  def rel_type
+    self.type
+  end
 end
