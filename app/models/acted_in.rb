@@ -7,6 +7,6 @@ class ActedIn
   property :roles
 
   def rel_type
-    self.type
+    type
   end
 end
