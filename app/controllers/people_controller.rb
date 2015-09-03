@@ -5,6 +5,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find_by(uuid: params[:id])
+    @person = Person.find_by(name: params[:name])
   end
 end
