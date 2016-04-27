@@ -44,6 +44,12 @@ I am skipping the seed tests with Guard, but you can test the seed task manually
 rspec spec/lib/tasks/db_spec.rb
 ```
 
+# seed the database
+
+```
+rake db:seed
+```
+
 # Issues
 
 ## installing liibv8
